@@ -1,0 +1,76 @@
+body {
+    background-image: url('../img/gradient.avif');
+    background-size: cover;
+}
+
+.container-custom {
+    background-color: white;
+    padding:2.5%;
+    border-radius: 20px;
+}
+
+.card-custom {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5%;
+    background: linear-gradient(180deg, #001a67 0%, #0d00a5 50px, white 50px, white 100%);
+}
+.card-custom .card-body {
+    margin-top: 20px;
+}
+.card-custom h4 {
+    color: white;
+    margin-top: -5px;
+}
+.card-description {
+    height: 100px;
+    background-color: rgb(230, 229, 229);
+    padding: 10px 10px 10px 15px;
+    border-radius: 5px;
+}
+.card-to-close {
+    margin: 10px 0;
+}
+.close-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    background: none;
+    border: 0;
+}
+.close-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+
+#description {
+    height: 200px;
+}
+.form-group-description {
+    position: relative;
+}
+.form-group-description .placeholder {
+    position: absolute;
+    top: 30px;
+    left: 12px;
+}
+
+
+
+.table {
+    border: solid 1px black;
+    padding: 40px;
+}
+
+.modal-content {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.modal-custom {
+    top: 75%;
+    left: 75%;
+}
+.modal-backdrop-custom {
+    position: unset;
+}
