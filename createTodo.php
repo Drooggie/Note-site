@@ -1,6 +1,4 @@
-
-
-<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<div class="tab-pane fade" id="create" role="tabpanel" aria-labelledby="create-tab">
     <form action="" method='post' class='w-50 mx-auto'>
 
         <div class="form-group">
@@ -13,9 +11,9 @@
         </div>
         <div class="form-group">
             <label for="deadline">Deadline</label>
-            <input type="date" name='deadline' id='deadline' class='form-control'>
+            <input type="number" min="0" value="1" name='deadline' id='deadline' class='form-control' placeholder="Days required">
         </div>
-        <input type="hidden" name='user_id' id='user_id' value='<?php echo $current_user_id?>'>
+        <input type="hidden" name='user_id' id='user_id' value='<?php echo $current_user_id ?>'>
         <button name='createTodoBtn' class="btn btn-primary">Create To-do Card</button>
 
     </form>

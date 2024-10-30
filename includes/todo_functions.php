@@ -7,8 +7,8 @@ function createTodo($title = NULL, $description = NULL, $deadline = NULL, $statu
     $stmt->bind_param('ssssi', $title, $description, $deadline, $status, $user_id);
     $stmt->execute();
     $stmt->close();
-    header('Location: ./index.php');
     $_SESSION['message'] = ['type' => 'success', 'msg' => 'You successfully added To-Do Card'];
+    header('Location: ./index.php');
     exit();
 }
 
@@ -49,4 +49,20 @@ function changeTodoStatus($id, $status = NULL)
     header('Location: ./index.php');
     $_SESSION['message'] = ['type' => 'success', 'msg' => 'Status successfully updated'];
     exit();
+}
+
+
+
+function deleteMultipleTodo($ids)
+{
+    global $mysqli;
+    $todoToDelete = json_decode($ids);
+
+    foreach ($todoToDelete as $todo_id) {
+        $stmt = $mysqli->prepare('DELETE FROM todo WHERE id=?');
+        $stmt->bind_param('i', $todo_id);
+        $stmt->execute();
+        $stmt->close();
+    }
+    header('Location: ./users.php');
 }

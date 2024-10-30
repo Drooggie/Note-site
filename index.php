@@ -4,10 +4,11 @@ include('./includes/functions.php');
 $users = selectAllUsers();
 
 if (isset($_POST['createTodoBtn'])) {
+    $deadline = (time() + $_POST['deadline'] * 24 * 60 * 60);
     createTodo(
         $_POST['title'],
         $_POST['description'],
-        strtotime($_POST['deadline']),
+        $deadline,
         'ongoing',
         $_POST['user_id']
     );
@@ -38,10 +39,10 @@ if (isset($_POST['createTodoBtn'])) {
 
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                <a class="nav-link active" id="main-tab" data-toggle="tab" href="#main" role="tab" aria-controls="main" aria-selected="true">Main</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                <a class="nav-link" id="create-tab" data-toggle="tab" href="#create" role="tab" aria-controls="create" aria-selected="false">Create</a>
             </li>
         </ul>
 
