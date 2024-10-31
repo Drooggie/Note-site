@@ -37,6 +37,7 @@ function loginUser($username = NULL, $password = NULL)
                 $_SESSION['user']['fname'] = $row['fname'];
                 $_SESSION['user']['lname'] = $row['lname'];
                 $_SESSION['user']['level'] = $row['level'];
+                $_SESSION['user']['password'] = $row['password'];
                 header('Location: ./index.php');
             } else {
                 $_SESSION['message'] = ["type" => 'danger', 'msg' => 'Your username or password incorrect'];
@@ -80,6 +81,48 @@ function registerUser($username = NULL, $fname = NULL, $lname = NULL, $password 
         exit();
     endif;
     $stmt->close();
+}
+
+
+
+function selectUser($id)
+{
+    global $mysqli;
+    $stmt = $mysqli->prepare('SELECT * FROM users WHERE id=?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows !== 0) {
+        $row = $result->fetch_assoc();
+        $stmt->close();
+        return $row;
+    } else {
+        $_SESSION['message'] = ['type' => 'danger', 'msg' => 'No such user'];
+        $stmt->close();
+        exit();
+    }
+}
+
+
+
+function updateUser($fname, $lname, $username, $password, $id)
+{
+    global $mysqli;
+    $stmt = $mysqli->prepare('UPDATE users SET fname=?, lname=?, username=?, password=? WHERE id=?');
+    $stmt->bind_param('ssssi', $fname, $lname, $username, $password, $id);
+    $stmt->execute();
+    if ($stmt->affected_rows !== 0) {
+        $_SESSION['message'] = ['type' => 'success', 'msg' => 'You successfully updated account information'];
+        $stmt->close();
+        header('Location: ./index.php');
+        exit();
+    } else {
+        $_SESSION['message'] = ['type' => 'danger', 'msg' => 'You had no changer'];
+        $stmt->close();
+        header('Location: ./index.php');
+        exit();
+    }
 }
 
 // function setupMessage() {

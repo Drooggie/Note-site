@@ -163,3 +163,44 @@ body {
     border-radius: 15px;
     z-index: 99999;
 }
+
+
+
+
+/* Status styles */
+.status {
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.ongoing {
+    background-color: #001a67;
+}
+
+.abandoned {
+    background-color: #ce2323
+}
+
+.done {
+    background-color: #22f45a;
+}
+
+
+
+
+
+/* Navbar */
+.navbar-ppc {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin-right: 10px;
+}
+
+.dropdown-toggle-custom {
+    background: none;
+}

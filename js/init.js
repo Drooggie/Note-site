@@ -56,3 +56,20 @@ document.getElementById('modal-delete-confirm-show').addEventListener('click', (
     closeDeleteBuffer()
     modalDeleteConfirmInput.value = JSON.stringify(modalDeleteBufferInput)
 })
+
+
+
+// Changing color of status div depend on status 
+const todoStatus = document.querySelectorAll('.status')
+
+todoStatus.forEach((tdStatus) => {
+    status_text = tdStatus.textContent.trim().toLowerCase()
+
+    if (status_text === 'ongoing') {
+        tdStatus.classList.add('ongoing')
+    } else if (status_text === 'abandoned') {
+        tdStatus.classList.add('abandoned')
+    } else if (status_text === 'done') {
+        tdStatus.classList.add('done')
+    }
+})

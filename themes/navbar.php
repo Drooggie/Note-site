@@ -6,6 +6,7 @@ if (!isset($_SESSION['user'])) {
 $fname = $_SESSION['user']['fname'];
 $lname = $_SESSION['user']['lname'];
 $current_user_id = $_SESSION['user']['id'];
+$password = $_SESSION['user']['password'];
 ?>
 
 <?php if (isset($_SESSION['message'])) : ?>
@@ -39,8 +40,22 @@ endif; ?>
         </li>
       </ul>
       <span class="navbar-text">
-        Welcome <?php echo $fname . ' ' . $lname ?>
-        (<a href="./logout.php">Logout User</a>)
+
+        <div class="btn-group">
+          <img class="navbar-ppc" src="./ppc/default.jpg" alt="">
+
+          <div class="dropdown">
+            <button class="btn dropdown-toggle dropdown-toggle-custom" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Welcome <?php echo $fname . ' ' . $lname ?>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="./updateUser.php?id=<?php echo $current_user_id ?>">Update account</a>
+              <a class="dropdown-item" href="./logout.php">Logout User</a>
+            </div>
+          </div>
+
+        </div>
+
       </span>
     </div>
   </div>

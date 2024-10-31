@@ -31,7 +31,7 @@ if (isset($_POST['changeStatusBtn'])) {
                                 <h4 class="card-title">$title</h4>
                                 <div class="card-body">
                                 <p class="card-text card-description">$description</p>
-                                <p class="card-text text-right">$status</p>
+                                <p class="card-text text-right status">$status</p>
                                 <p class="card-text"><small class="text-muted">$deadline days/day left</small></p>
                                 <p class="text-right">
                                     <a data-toggle="modal" data-backdrop="false " data-target="#changeStatusModal" href="#" onclick="transferTodoID($id)">
